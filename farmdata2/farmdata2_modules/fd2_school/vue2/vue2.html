@@ -92,6 +92,34 @@
         </tbody>
 
     </table>
+<script>
+    
+  var myReportSample = new Vue({
+    el: "#my-ReportSample",
+    data: {
+      header: "My Sample Harvest Report",
+      start: "2020-05-05",
+      end: "2021-02-02",
+      crop:'Kale',
+      crops:[
+        "Kale",
+        "Broccoli",
+        "Peas"
+      ],
+      field : "All",
+      areas : [
+        "All",
+        "Chuau-1",
+        "SQ7",
+      ],
+      logs:[
+        {date: "2020-09-01", area: "Chuau-1", cr: "Kale", yield: 4, units: "Bunches"},
+        {date: "2021-02-02", area: "All", cr: "Broccoli", yield: 14, units: "Bunches"},
+      ],
+    },
+  });
+  Vue.config.devtools = true;
 
+</script>
 
 </html>
