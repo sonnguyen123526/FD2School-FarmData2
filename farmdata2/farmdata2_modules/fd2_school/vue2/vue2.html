@@ -37,7 +37,10 @@
     </div>
 
     <div class="input-submission">
-        <button type="submit">Generate Report</button>
+        <button class="btn btn-primary" @click="logs.push"
+        ({date: '2018-01-01', area: 'Orion-3',
+    cr: 'Kale', yield:'12', units: 'Bunches'
+     })>Generate Report</button>
     </div>
 
     <h1>My Sample Harvest Report</h1>
@@ -92,6 +95,7 @@
         </tbody>
 
     </table>
+<script src="https://unpkg.com/vue@2"></script>
 <script>
     
   var myReportSample = new Vue({
@@ -112,10 +116,7 @@
         "Chuau-1",
         "SQ7",
       ],
-      logs:[
-        {date: "2020-09-01", area: "Chuau-1", cr: "Kale", yield: 4, units: "Bunches"},
-        {date: "2021-02-02", area: "All", cr: "Broccoli", yield: 14, units: "Bunches"},
-      ],
+      logs:[],
     },
   });
   Vue.config.devtools = true;
