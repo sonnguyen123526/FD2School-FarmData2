@@ -121,7 +121,9 @@
 		let tableRow = {
 			date: log.timestamp,
 		}
-		tableRows.push(tableRow)
+        if(tableRow.cr == this.crop) {
+            tableRows.push(tableRow)
+        }
 	}
 	return tableRows
     },
@@ -148,30 +150,20 @@
 
           })
           .catch((error) => {
-            // Block B: 
-            // Code here executes if an error occurs processing the request.
-            // error is an Object describing the error that occurred.
-            console.log("Error Occurred")
-            console.log(error)
-
+            
           })
           // Block C: 
             // Code here runs immediately after the request is sent,
             // which will be before the code in then() or catch(),
             // and before the response is received.
-        this.logs.push({date: "2018-05-01", area: "Orion-3", 
-          cr: "Kale", yield: "12", units: "Bunches"});
+     
         let startTimestamp = dayjs(this.start).unix();
         let endTimestamp = dayjs(this.end).unix();
         console.log(startTimestamp, endTimestamp);
         let request = "/log.json?type=farm_harvest&timestamp[ge]="+ startTimestamp + "&timestamp[le]=" + endTimestamp;
-        console.log(request);
         getAllPages(request, this.allPagesArr).
         then(() => {
-              // All of the requested records have now been added to result.
-              // Additional processing can happen here if necessary,
-              // or then may be omitted.
-            this.allPagesArr = result;
+
             console.log("successful")
         })
         .catch((err) => {
