@@ -114,6 +114,19 @@
             return cropVals;
         }
     },
+
+    harvestReportRows() {
+	let tableRows = []
+	for(let log of this.harvestLogs) {
+		let tableRow = {
+			date: log.timestamp,
+		}
+		tableRows.push(tableRow)
+	}
+	return tableRows
+    },
+
+
     methods:{
         generate: function(){
             this.logs.push({date: "2018-01-01", area: "Orion-3",
