@@ -61,7 +61,7 @@
     <h3>Harvest Data</h3>
 
     <table border=1>
-        <tr v-if="logs.length>0">
+        <tr v-if="allPagesArr.length>0">
             <th>Row</th>
             <th>Date</th>
             <th>Area</th>
@@ -70,7 +70,7 @@
             <th>Units</th>
         </tr>
 
-        <tr v-for="(log, index) in logs">
+        <tr v-for="(log, index) in harvestReportRows">
             <td>{{index+1}}</td>
             <td>{{log.date}}</td>
             <td>{{log.area}}</td>
