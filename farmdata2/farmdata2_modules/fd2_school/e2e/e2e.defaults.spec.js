@@ -29,4 +29,16 @@ describe("Test the harvest report default values", ()=>{
         cy.get('[data-cy="generate-report-button"]').click();
         cy.get('[data-cy="report-header"]').should('be.visible');
     })
+    it("Check the correct username", ()=>{
+        cy.get('[data-cy="generate-report-button"]').click();
+        cy.get('[data-cy="user-name"]').should('contain.text', 'user');
+    })
+    it("Check the farm name", ()=>{
+        cy.get('[data-cy="generate-report-button"]').click();
+        cy.get('[data-cy="farm-name"]').should('contain.text', 'farm');
+    })
+    it("Check the language", ()=>{
+        cy.get('[data-cy="generate-report-button"]').click();
+        cy.get('[data-cy="report-language"]').should('have.text', '');
+    })
 })
