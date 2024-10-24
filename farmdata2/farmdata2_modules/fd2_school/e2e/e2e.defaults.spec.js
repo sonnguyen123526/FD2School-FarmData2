@@ -21,4 +21,12 @@ describe("Test the harvest report default values", ()=>{
             cy.get("[data-cy=crop-dropdown]").children().eq(options.length - 1).should('have.text', 'Peas')
         })
     })
+    it("Check the Generate Report button", ()=> {
+        cy.get("[data-cy=generate-report-button]").click()
+    })
+    it("Check the my sample report DNE or exists", ()=>{
+        cy.get('[data-cy="report-header"]').should('not.exist');
+        cy.get('[data-cy="generate-report-button"]').click();
+        cy.get('[data-cy="report-header"]').should('be.visible');
+    })
 })

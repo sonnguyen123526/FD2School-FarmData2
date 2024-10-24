@@ -39,13 +39,13 @@
     </div>
 
     <div class="input-submission">
-        <button class="btn btn-primary" @click="logs.push"
+        <button class="btn btn-primary" data-cy="generate-report-button" @click="logs.push"
         ({date: "2018-01-01", area: "Orion-3",
     cr: "Kale", yield:"12", units: "Bunches"
      })>Generate Report</button>
     </div>
 
-    <h1>My Sample Harvest Report</h1>
+    <h1 v-if= "reportGenerated" data-cy="report-header">My Sample Harvest Report</h1>
 
     <h3>Details:</h3>
     <br>
@@ -109,6 +109,7 @@
       idToCropMap: new Map(),
       idToAreaMap: new Map(),
       allPagesArr: [],
+      reportGenerated: false,
     },
     computed:{
         cropNames(){
@@ -138,7 +139,7 @@
             this.farm = "Sample Farm";
             this.user = "manager1";
             this.language = "English";
-        
+            this.reportGenerated = true;
         axios.get('/farm.json')  // this line sends the request.
         .then((response) => {
             // Block A:
